@@ -91,3 +91,14 @@ http://127.0.0.1:5000/
 
 5. Train the Model
 To retrain the model:python train_model.py
+
+
+---
+
+# 📦 **requirements.txt**
+
+```txt
+Flask==2.2.3
+pandas==2.2.2
+numpy==1.26.2
+scikit-learn==1.3.2
