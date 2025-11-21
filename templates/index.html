@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crop Recommendation System</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f0f8ff; /* Light blue background */
+            margin: 0;
+            padding: 0;
+        }
+
+        .slider {
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+            position: relative;
+            background: #87cefa; /* Sky blue background */
+            border-bottom: 4px solid #4682b4; /* Dark blue border */
+        }
+
+        .slides {
+            display: flex;
+            width: 300%;
+            height: 100%;
+            animation: slide 12s infinite;
+        }
+
+        .slide {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 28px;
+            font-weight: bold;
+            color: #2f4f4f; /* Dark slate gray text */
+            background: linear-gradient(to right, #d1e0e0, #f0f8ff); /* Light blue gradient */
+        }
+
+        @keyframes slide {
+            0% { margin-left: 0%; }
+            33% { margin-left: 0%; }
+            36% { margin-left: -100%; }
+            66% { margin-left: -100%; }
+            69% { margin-left: -200%; }
+            100% { margin-left: -200%; }
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            display: flex;
+            justify-content: space-between;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .form-container {
+            width: 45%;
+        }
+
+        h2 {
+            text-align: center;
+            color: #4682b4; /* Dark blue text */
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #add8e6; /* Light blue border */
+            border-radius: 8px;
+            background: #f0f8ff; /* Light blue background */
+            transition: transform 0.2s ease-in-out; /* Smooth transition for zoom effect */
+        }
+
+        input:focus {
+            transform: scale(1.05); /* Small zoom effect when focused */
+            border-color: #4682b4; /* Dark blue border when focused */
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4682b4; /* Dark blue button */
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #5f9ea0; /* Light teal hover */
+        }
+
+        .result-container {
+            width: 45%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .result {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 22px;
+            color: #2f4f4f; /* Dark slate gray text */
+            font-family: 'Arial', sans-serif;
+            font-weight: 600;
+            animation: swipeEffect 1s ease-out;
+            padding: 20px;
+            border-radius: 10px;
+            background: #d1e0e0; /* Light grayish-blue */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        @keyframes swipeEffect {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            50% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 800px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .form-container, .result-container {
+                width: 90%;
+                margin-bottom: 20px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- 🌿 Text-Only Slider -->
+<div class="slider">
+    <div class="slides">
+        <div class="slide">🌿 Smart Farming</div>
+        <div class="slide">🧪 Soil + Science</div>
+        <div class="slide">🌱 Grow Better</div>
+    </div>
+</div>
+
+<!-- 📋 Crop Form and Result -->
+<div class="container">
+    <!-- Form Section -->
+    <div class="form-container">
+        <h2>Crop Recommendation System</h2>
+        <form method="POST" action="/predict">
+            <input type="text" name="N" placeholder="Nitrogen (N)" required>
+            <input type="text" name="P" placeholder="Phosphorus (P)" required>
+            <input type="text" name="K" placeholder="Potassium (K)" required>
+            <input type="text" name="temperature" placeholder="Temperature (°C)" required>
+            <input type="text" name="humidity" placeholder="Humidity (%)" required>
+            <input type="text" name="ph" placeholder="pH Level" required>
+            <input type="text" name="rainfall" placeholder="Rainfall (mm)" required>
+            <button type="submit">🌾 Recommend Crop</button>
+        </form>
+    </div>
+
+    <!-- Result Section -->
+    <div class="result-container">
+        {% if prediction_text %}
+        <div class="result">
+            {{ prediction_text }}
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+</body>
+</html>
