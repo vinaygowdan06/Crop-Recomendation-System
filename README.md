@@ -25,14 +25,23 @@ It helps farmers and students make accurate, data-driven agricultural decisions.
 ## 📂 Project Structure
 
 Crop-Recommendation-System/
+
 ├── templates/
+
 │ └── index.html # HTML form for inputs
+
 ├── Crop_recommendation.csv
+
 ├── LICENSE
+
 ├── README.md
+
 ├── app.py # Flask backend
+
 ├── model.pkl # Trained Random Forest model
+
 └── train_model.py # Training script
+
 
 
 ---
@@ -71,7 +80,7 @@ venv\Scripts\activate
 # macOS/Linux
 source venv/bin/activate
 
-### 2. Install dependencies
+2. Install dependencies
 pip install -r requirements.txt
 
 3. Run the Flask App
