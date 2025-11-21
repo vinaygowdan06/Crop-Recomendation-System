@@ -1,36 +1,84 @@
-🌾 Crop Recommendation System
-This project predicts the most suitable crop to grow based on soil nutrients and climatic conditions.
-It uses Machine Learning (Random Forest Classifier) to recommend the best crop for a given set of inputs.
+# 🌾 Crop Recommendation System
 
-📘 About the Project
-The system takes soil and weather parameters like Nitrogen, Phosphorus, Potassium, temperature, humidity, pH, and rainfall and predicts the ideal crop.
-This project helps in making data-driven agricultural decisions.
+This project predicts the most suitable crop to grow based on soil nutrients and climatic conditions.  
+It uses a **Machine Learning Random Forest Classifier** to recommend the best crop for given input parameters.
 
-🚀 Features
-✔️ Machine Learning–based crop prediction
-✔️ Flask web application
-✔️ Trained model included (model.pkl)
-✔️ Uses real agricultural dataset
-✔️ User-friendly HTML interface
-📂 Project Structure
-📁 Crop-Recommendation-System/
+---
 
-│
+## 📘 About the Project
 
-├── 📁 templates/
+The system takes soil and weather parameters — **Nitrogen (N), Phosphorus (P), Potassium (K), temperature, humidity, pH, rainfall** — and predicts the ideal crop.  
+It helps farmers and students make accurate, data-driven agricultural decisions.
 
-│ └── index.html # Web UI (HTML Form for user inputs)
+---
 
-│
+## 🚀 Features
 
-├── Crop_recommendation.csv # Dataset used for model training
+- ✔ Machine Learning–based crop prediction  
+- ✔ Flask web application  
+- ✔ Trained model included (`model.pkl`)  
+- ✔ Real agricultural dataset  
+- ✔ Clean HTML UI (`templates/index.html`)
 
-├── LICENSE # MIT License for your project
+---
 
-├── README.md # Full project documentation
+## 📂 Project Structure
 
-├── app.py # Flask backend (loads model & predicts crop)
+Crop-Recommendation-System/
+├── templates/
+│ └── index.html # HTML form for inputs
+├── Crop_recommendation.csv
+├── LICENSE
+├── README.md
+├── app.py # Flask backend
+├── model.pkl # Trained Random Forest model
+└── train_model.py # Training script
 
-├── model.pkl # Trained Random Forest ML model
 
-└── train_model.py # Script to train the ML model and save model.pkl
+---
+
+## 🧪 Input Parameters
+
+| Parameter | Description |
+|----------|-------------|
+| N | Nitrogen |
+| P | Phosphorus |
+| K | Potassium |
+| Temperature | °C |
+| Humidity | % |
+| pH | Soil pH |
+| Rainfall | mm |
+
+---
+
+## 🛠 Tech Stack
+
+- Python  
+- Flask  
+- Scikit-Learn  
+- Pandas  
+- NumPy  
+
+---
+
+## ▶️ How to Run the Project
+
+### 1. Create virtual environment (optional but recommended)
+```bash
+python -m venv venv
+# Windows
+venv\Scripts\activate
+# macOS/Linux
+source venv/bin/activate
+
+2. Install dependencies
+pip install -r requirements.txt
+
+3. Run the Flask App
+python app.py
+
+4. Open in Browser
+http://127.0.0.1:5000/
+
+5. Train the Model
+To retrain the model:python train_model.py
